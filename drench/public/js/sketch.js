@@ -12,9 +12,9 @@ var rows;
 var w = 20;
 
 function setup() {
-  createCanvas(500, 500);
-  cols = floor(width / w);
-  rows = floor(height / w);
+  createCanvas(520, 520);
+  cols = floor(width / w - 2.5);
+  rows = floor(height / w - 2.5);
   grid = make2DArray(cols, rows);
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
