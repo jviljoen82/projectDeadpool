@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const cors = require('cors');
 const path = require('path');
-require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create();
 
 app.use(express.static('css'));
 
@@ -25,7 +24,6 @@ app.get('/', cors(corsOptions), (req, res, next) => {
 });
 
 const server = app.listen(8081, 'localhost', () => {
-   getBranches();
    const host = server.address().address;
    const port = server.address().port;
    console.log ('Server listening on: ' + host + ':' + port);
