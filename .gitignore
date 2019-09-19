@@ -61,5 +61,5 @@ typings/
 .next
 
 #config files
-drench/.eslint.js
 .vscode
+drench/.eslintrc.js
