@@ -16,11 +16,11 @@ let corsOptions = {
 app.use(cors());
 
 app.get('/index.html', cors(corsOptions), (req, res, next) => {
-    res.sendFile( __dirname + 'index.html' );
+    res.sendFile( __dirname + '/index.html' );
 });
 
 app.get('/', cors(corsOptions), (req, res, next) => {
-   res.sendFile( __dirname + 'index.html' );
+   res.sendFile( __dirname + '/index.html' );
 });
 
 const server = app.listen(8081, 'localhost', () => {
