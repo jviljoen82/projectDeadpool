@@ -63,3 +63,4 @@ typings/
 #config files
 .vscode
 drench/.eslintrc.js
+.eslintrc.js
