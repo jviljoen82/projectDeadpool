@@ -122,3 +122,11 @@ Button1.onPress = function () {
 Button1.onRelease = function () {
   // TODO: tile colour change logic call
 };
+
+// button2
+Button2.onPress = function () {
+  console.log("button 2 pressed");
+};
+Button2.onRelease = function () {
+  // TODO: tile colour change logic call
+};
