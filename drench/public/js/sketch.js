@@ -19,6 +19,10 @@ const blue = [0, 255, 0, 63, 197, 233];
 
 const Button1 = new Clickable();
 const Button2 = new Clickable();
+const Button3 = new Clickable();
+const Button4 = new Clickable();
+const Button5 = new Clickable();
+const Button6 = new Clickable();
   
 
 function setup() {
@@ -66,6 +70,54 @@ function setup() {
   Button2.stroke = '#000000';
   Button2.textColor = btn2Color;
 
+   // button3
+   let btn3Color = color(red[2], green[2], blue[2]);
+   Button3.x = 110;
+   Button3.y = 305;
+   Button3.height = buttonSize;
+   Button3.width = buttonSize;
+   Button3.color = btn3Color;
+   Button3.cornerRadius = 10;
+   Button3.strokeWeight = 2;
+   Button3.stroke = '#000000';
+   Button3.textColor = btn3Color;
+  
+   // button4
+   let btn4Color = color(red[3], green[3], blue[3]);
+   Button4.x = 10;
+   Button4.y = 355;
+   Button4.height = buttonSize;
+   Button4.width = buttonSize;
+   Button4.color = btn4Color;
+   Button4.cornerRadius = 10;
+   Button4.strokeWeight = 2;
+   Button4.stroke = '#000000';
+   Button4.textColor = btn4Color;
+  
+   // button5
+   let btn5Color = color(red[4], green[4], blue[4]);
+   Button5.x = 60;
+   Button5.y = 355;
+   Button5.height = buttonSize;
+   Button5.width = buttonSize;
+   Button5.color = btn5Color;
+   Button5.cornerRadius = 10;
+   Button5.strokeWeight = 2;
+   Button5.stroke = '#000000';
+   Button5.textColor = btn5Color;
+  
+   // button6
+   let btn6Color = color(red[5], green[5], blue[5]);
+   Button6.x = 110;
+   Button6.y = 355;
+   Button6.height = buttonSize;
+   Button6.width = buttonSize;
+   Button6.color = btn6Color;
+   Button6.cornerRadius = 10;
+   Button6.strokeWeight = 2;
+   Button6.stroke = '#000000';
+   Button6.textColor = btn6Color;
+
   // ***************************************************
 }
 
@@ -73,9 +125,13 @@ function draw() {
   // draw button panel with buttons
   fill('#B9B7B7');
   stroke('#949494');
-  rect(5, 300, 280, 105);
+  rect(5, 300, 160, 105);
   Button1.draw();
   Button2.draw();
+  Button3.draw();
+  Button4.draw();
+  Button5.draw();
+  Button6.draw();
 
   // moved to setup to only draw once
   /*
@@ -100,12 +156,44 @@ Button1.onHover = function () {
   Button1.stroke = '#FFFFFF';
 };
 
-// button1
+// button2
 Button2.onOutside = function () {
   Button2.stroke = '#000000';
 };
 Button2.onHover = function () {
   Button2.stroke = '#FFFFFF';
+};
+
+// button3
+Button3.onOutside = function () {
+  Button3.stroke = '#000000';
+};
+Button3.onHover = function () {
+  Button3.stroke = '#FFFFFF';
+};
+
+// button4
+Button4.onOutside = function () {
+  Button4.stroke = '#000000';
+};
+Button4.onHover = function () {
+  Button4.stroke = '#FFFFFF';
+};
+
+// button5
+Button5.onOutside = function () {
+  Button5.stroke = '#000000';
+};
+Button5.onHover = function () {
+  Button5.stroke = '#FFFFFF';
+};
+
+// button6
+Button6.onOutside = function () {
+  Button6.stroke = '#000000';
+};
+Button6.onHover = function () {
+  Button6.stroke = '#FFFFFF';
 };
 
 
@@ -128,5 +216,37 @@ Button2.onPress = function () {
   console.log("button 2 pressed");
 };
 Button2.onRelease = function () {
+  // TODO: tile colour change logic call
+};
+
+// button3
+Button3.onPress = function () {
+  console.log("button 3 pressed");
+};
+Button3.onRelease = function () {
+  // TODO: tile colour change logic call
+};
+
+// button4
+Button4.onPress = function () {
+  console.log("button 4 pressed");
+};
+Button4.onRelease = function () {
+  // TODO: tile colour change logic call
+};
+
+// button5
+Button5.onPress = function () {
+  console.log("button 5 pressed");
+};
+Button5.onRelease = function () {
+  // TODO: tile colour change logic call
+};
+
+// button6
+Button6.onPress = function () {
+  console.log("button 6 pressed");
+};
+Button6.onRelease = function () {
   // TODO: tile colour change logic call
 };
