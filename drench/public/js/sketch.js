@@ -23,7 +23,26 @@ const Button3 = new Clickable();
 const Button4 = new Clickable();
 const Button5 = new Clickable();
 const Button6 = new Clickable();
-  
+
+const btnList = [Button1, Button2, Button3, Button4, Button5, Button6];
+
+function btnSetup(currentBtn, index) {
+  let btnColor = color(red[index], green[index], blue[index]);
+  if (index <= 2) {
+    currentBtn.x = 10 + (index * 50);
+    currentBtn.y = 305;
+  } else {
+    currentBtn.x = 10 + ((index - 3) * 50);
+    currentBtn.y = 355;
+  }  
+  currentBtn.height = buttonSize;
+  currentBtn.width = buttonSize;
+  currentBtn.color = btnColor;
+  currentBtn.cornerRadius = 10;
+  currentBtn.strokeWeight = 2;
+  currentBtn.stroke = '#000000';
+  currentBtn.textColor = btnColor;
+}  
 
 function setup() {
   createCanvas(320, 410);
@@ -44,81 +63,10 @@ function setup() {
     }
   } 
 
-  // **************************************************
   // button setup
-  // button1
-  let btn1Color = color(red[0], green[0], blue[0]);
-  Button1.x = 10;
-  Button1.y = 305;
-  Button1.height = buttonSize;
-  Button1.width = buttonSize;
-  Button1.color = btn1Color;
-  Button1.cornerRadius = 10;
-  Button1.strokeWeight = 2;
-  Button1.stroke = '#000000';
-  Button1.textColor = btn1Color;
-
-  // button2
-  let btn2Color = color(red[1], green[1], blue[1]);
-  Button2.x = 60;
-  Button2.y = 305;
-  Button2.height = buttonSize;
-  Button2.width = buttonSize;
-  Button2.color = btn2Color;
-  Button2.cornerRadius = 10;
-  Button2.strokeWeight = 2;
-  Button2.stroke = '#000000';
-  Button2.textColor = btn2Color;
-
-   // button3
-   let btn3Color = color(red[2], green[2], blue[2]);
-   Button3.x = 110;
-   Button3.y = 305;
-   Button3.height = buttonSize;
-   Button3.width = buttonSize;
-   Button3.color = btn3Color;
-   Button3.cornerRadius = 10;
-   Button3.strokeWeight = 2;
-   Button3.stroke = '#000000';
-   Button3.textColor = btn3Color;
-  
-   // button4
-   let btn4Color = color(red[3], green[3], blue[3]);
-   Button4.x = 10;
-   Button4.y = 355;
-   Button4.height = buttonSize;
-   Button4.width = buttonSize;
-   Button4.color = btn4Color;
-   Button4.cornerRadius = 10;
-   Button4.strokeWeight = 2;
-   Button4.stroke = '#000000';
-   Button4.textColor = btn4Color;
-  
-   // button5
-   let btn5Color = color(red[4], green[4], blue[4]);
-   Button5.x = 60;
-   Button5.y = 355;
-   Button5.height = buttonSize;
-   Button5.width = buttonSize;
-   Button5.color = btn5Color;
-   Button5.cornerRadius = 10;
-   Button5.strokeWeight = 2;
-   Button5.stroke = '#000000';
-   Button5.textColor = btn5Color;
-  
-   // button6
-   let btn6Color = color(red[5], green[5], blue[5]);
-   Button6.x = 110;
-   Button6.y = 355;
-   Button6.height = buttonSize;
-   Button6.width = buttonSize;
-   Button6.color = btn6Color;
-   Button6.cornerRadius = 10;
-   Button6.strokeWeight = 2;
-   Button6.stroke = '#000000';
-   Button6.textColor = btn6Color;
-
-  // ***************************************************
+  for (ind = 0; ind <= 5; ind++){
+    btnSetup(btnList[ind], ind);
+  }
 }
 
 function draw() {
@@ -149,50 +97,50 @@ function draw() {
 // *******************************
 
 // button1
-Button1.onOutside = function () {
+Button1.onOutside = () => {
   Button1.stroke = '#000000';
 };
-Button1.onHover = function () {
+Button1.onHover = () => {
   Button1.stroke = '#FFFFFF';
 };
 
 // button2
-Button2.onOutside = function () {
+Button2.onOutside = () => {
   Button2.stroke = '#000000';
 };
-Button2.onHover = function () {
+Button2.onHover = () => {
   Button2.stroke = '#FFFFFF';
 };
 
 // button3
-Button3.onOutside = function () {
+Button3.onOutside = () => {
   Button3.stroke = '#000000';
 };
-Button3.onHover = function () {
+Button3.onHover = () => {
   Button3.stroke = '#FFFFFF';
 };
 
 // button4
-Button4.onOutside = function () {
+Button4.onOutside = () => {
   Button4.stroke = '#000000';
 };
-Button4.onHover = function () {
+Button4.onHover = () => {
   Button4.stroke = '#FFFFFF';
 };
 
 // button5
-Button5.onOutside = function () {
+Button5.onOutside = () => {
   Button5.stroke = '#000000';
 };
-Button5.onHover = function () {
+Button5.onHover = () => {
   Button5.stroke = '#FFFFFF';
 };
 
 // button6
-Button6.onOutside = function () {
+Button6.onOutside = () => {
   Button6.stroke = '#000000';
 };
-Button6.onHover = function () {
+Button6.onHover = () => {
   Button6.stroke = '#FFFFFF';
 };
 
