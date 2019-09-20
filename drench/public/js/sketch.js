@@ -46,17 +46,7 @@ function btnSetup(currentBtn, index) {
   currentBtn.textColor = btnColor;
 }  
 
-function setup() {
-  createCanvas(320, 420);
-  // cols = floor(width / w - 2.5);
-  // rows = floor(height / w - 2.5);
-  grid = make2DArray(cols, rows);
-  for (let i = 0; i < cols; i++) {
-    for (let j = 0; j < rows; j++) {
-      grid[i][j] = new Cell(i, j, w);
-        }
-  }
-  
+function drawUI() {
   //draw grid once
   background(255);
   for (let i = 0; i < cols; i++) {
@@ -79,6 +69,20 @@ function setup() {
   resetBtn.stroke = '#808080';
   resetBtn.textColor = '#808080';
   resetBtn.text = 'RESET';
+}
+
+function setup() {
+  createCanvas(320, 420);
+  // cols = floor(width / w - 2.5);
+  // rows = floor(height / w - 2.5);
+  grid = make2DArray(cols, rows);
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      grid[i][j] = new Cell(i, j, w);
+        }
+  }
+  
+  drawUI();
 }
 
 function draw() {
@@ -164,6 +168,10 @@ resetBtn.onHover = () => {
 
 
 
+function colorChange(toColor) {
+  grid[0][0].c = color(red[toColor], green[toColor], blue[toColor]);
+  drawUI();
+}
 
 // ***************************************
 // button click methods to folow
@@ -174,7 +182,7 @@ Button1.onPress = function () {
   console.log("button 1 pressed");
 };
 Button1.onRelease = function () {
-  // TODO: tile colour change logic call
+  colorChange(0);
 };
 
 // button2
@@ -182,7 +190,7 @@ Button2.onPress = function () {
   console.log("button 2 pressed");
 };
 Button2.onRelease = function () {
-  // TODO: tile colour change logic call
+  colorChange(1);
 };
 
 // button3
@@ -190,7 +198,7 @@ Button3.onPress = function () {
   console.log("button 3 pressed");
 };
 Button3.onRelease = function () {
-  // TODO: tile colour change logic call
+  colorChange(2);
 };
 
 // button4
@@ -198,7 +206,7 @@ Button4.onPress = function () {
   console.log("button 4 pressed");
 };
 Button4.onRelease = function () {
-  // TODO: tile colour change logic call
+  colorChange(3);
 };
 
 // button5
@@ -206,7 +214,7 @@ Button5.onPress = function () {
   console.log("button 5 pressed");
 };
 Button5.onRelease = function () {
-  // TODO: tile colour change logic call
+  colorChange(4);
 };
 
 // button6
@@ -214,7 +222,7 @@ Button6.onPress = function () {
   console.log("button 6 pressed");
 };
 Button6.onRelease = function () {
-  // TODO: tile colour change logic call
+  colorChange(5);
 };
 
 // reset button
