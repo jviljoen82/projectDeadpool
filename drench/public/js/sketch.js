@@ -31,11 +31,11 @@ const btnList = [Button1, Button2, Button3, Button4, Button5, Button6];
 function btnSetup(currentBtn, index) {
   let btnColor = color(red[index], green[index], blue[index]);
   if (index <= 2) {
-    currentBtn.x = 10 + (index * 50);
-    currentBtn.y = 305;
+    currentBtn.x = 15 + (index * 50);
+    currentBtn.y = 310;
   } else {
-    currentBtn.x = 10 + ((index - 3) * 50);
-    currentBtn.y = 355;
+    currentBtn.x = 15 + ((index - 3) * 50);
+    currentBtn.y = 360;
   }  
   currentBtn.height = buttonSize;
   currentBtn.width = buttonSize;
@@ -47,7 +47,7 @@ function btnSetup(currentBtn, index) {
 }  
 
 function setup() {
-  createCanvas(320, 410);
+  createCanvas(320, 420);
   // cols = floor(width / w - 2.5);
   // rows = floor(height / w - 2.5);
   grid = make2DArray(cols, rows);
@@ -85,7 +85,7 @@ function draw() {
   // draw button panel with buttons
   fill('#C0C0C0');
   stroke('#808080');
-  rect(5, 300, 160, 105);
+  rect(5, 300, 160, 110);
   for (btnInd = 0; btnInd <= 5; btnInd++) {
     btnList[btnInd].draw();
   }
