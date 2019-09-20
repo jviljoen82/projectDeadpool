@@ -8,14 +8,14 @@ class Cell {
     this.w = w;
     this.red = [255, 0, 0, 100, 100, 0];
     this.blue = [0, 255, 0, 100, 0, 100];
-    this.green = [0, 0, 255, 0, 100, 100];
+    this.green = [0, 0, 255, 0, 100, 100];    
+    this.colorRandomzer = Math.floor(random(6));
+    this.c = color(this.red[this.colorRandomzer], this.green[this.colorRandomzer], this.blue[this.colorRandomzer]);
   }
   show() {
     //stroke(0);
-    let colorRandomzer = Math.floor(random(6));
     noStroke();
-    let c = color(this.red[colorRandomzer], this.green[colorRandomzer], this.blue[colorRandomzer]);
-    fill(c);
+    fill(this.c);
     rect(this.x, this.y, this.w, this.w);
   }
 }
