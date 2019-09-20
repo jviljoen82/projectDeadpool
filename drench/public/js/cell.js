@@ -8,6 +8,8 @@ class Cell {
     this.w = w;
     this.colorRandomzer = Math.floor(random(6));
     this.c = color(red[this.colorRandomzer], green[this.colorRandomzer], blue[this.colorRandomzer]);
+    this.changeAble = false;
+    this.colorCode = this.colorRandomzer;
   }
   show() {
     //stroke(0);

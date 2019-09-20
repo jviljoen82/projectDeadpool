@@ -44,7 +44,33 @@ function btnSetup(currentBtn, index) {
   currentBtn.strokeWeight = 2;
   currentBtn.stroke = '#000000';
   currentBtn.textColor = btnColor;
-}  
+}
+
+function setChangeAble() {
+  // set which cells are changeable
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      if (grid[i][j].changeAble) {
+        if (i === 0 && j >= 0 && j < 13) {
+          if (grid[i][j + 1].colorCode === grid[0][0].colorCode) grid[i][j + 1].changeAble = true;
+          if (grid[i + 1][j].colorCode === grid[0][0].colorCode) grid[i + 1][j].changeAble = true;
+          if (j > 0 && (grid[i][j - 1].colorCode === grid[0][0].colorCode)) grid[i][j - 1].changeAble = true;
+        }
+        if (i > 0 && j >= 0 && j < 13) {
+          if (grid[i][j + 1].colorCode === grid[0][0].colorCode) grid[i][j + 1].changeAble = true;
+          if (grid[i + 1][j].colorCode === grid[0][0].colorCode) grid[i + 1][j].changeAble = true;
+          if (j > 0 && (grid[i][j - 1].colorCode === grid[0][0].colorCode)) grid[i][j - 1].changeAble = true;
+          if (grid[i - 1][j].colorCode === grid[0][0].colorCode) grid[i - 1][j].changeAble = true;
+        }
+        if (i === 13 && j >= 0 && j < 13) {
+          if (grid[i][j + 1].colorCode === grid[0][0].colorCode) grid[i][j + 1].changeAble = true;
+          if (grid[i - 1][j].colorCode === grid[0][0].colorCode) grid[i - 1][j].changeAble = true;
+          if (j > 0 && (grid[i][j - 1].colorCode === grid[0][0].colorCode)) grid[i][j - 1].changeAble = true;
+        }
+      }
+    }
+  }
+}
 
 function drawUI() {
   //draw grid once
@@ -81,7 +107,10 @@ function setup() {
       grid[i][j] = new Cell(i, j, w);
         }
   }
-  
+
+  //set first cell changeAble
+  grid[0][0].changeAble = true;
+  setChangeAble();
   drawUI();
 }
 
@@ -169,7 +198,17 @@ resetBtn.onHover = () => {
 
 
 function colorChange(toColor) {
-  grid[0][0].c = color(red[toColor], green[toColor], blue[toColor]);
+  // change colours
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      if (grid[i][j].changeAble) {
+        grid[i][j].c = color(red[toColor], green[toColor], blue[toColor]);
+        grid[i][j].colorCode = toColor;
+      }
+    }
+  }  
+
+  setChangeAble();
   drawUI();
 }
 
