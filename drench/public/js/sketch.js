@@ -24,6 +24,8 @@ const Button4 = new Clickable();
 const Button5 = new Clickable();
 const Button6 = new Clickable();
 
+const resetBtn = new Clickable();
+
 const btnList = [Button1, Button2, Button3, Button4, Button5, Button6];
 
 function btnSetup(currentBtn, index) {
@@ -67,17 +69,28 @@ function setup() {
   for (ind = 0; ind <= 5; ind++){
     btnSetup(btnList[ind], ind);
   }
+
+  //reset btn
+  resetBtn.x = 180;
+  resetBtn.y = 300; 
+  resetBtn.color = '#C0C0C0';
+  resetBtn.cornerRadius = 10;
+  resetBtn.strokeWeight = 2;
+  resetBtn.stroke = '#808080';
+  resetBtn.textColor = '#808080';
+  resetBtn.text = 'RESET';
 }
 
 function draw() {
   // draw button panel with buttons
-  fill('#B9B7B7');
-  stroke('#949494');
+  fill('#C0C0C0');
+  stroke('#808080');
   rect(5, 300, 160, 105);
   for (btnInd = 0; btnInd <= 5; btnInd++) {
     btnList[btnInd].draw();
   }
-  
+  resetBtn.draw();
+
   // moved to setup to only draw once
   /*
     background(255);
@@ -141,6 +154,14 @@ Button6.onHover = () => {
   Button6.stroke = '#FFFFFF';
 };
 
+// reset button
+resetBtn.onOutside = () => {
+  resetBtn.stroke = '#808080';
+};
+resetBtn.onHover = () => {
+  resetBtn.stroke = '#FFFFFF';
+};
+
 
 
 
@@ -194,4 +215,12 @@ Button6.onPress = function () {
 };
 Button6.onRelease = function () {
   // TODO: tile colour change logic call
+};
+
+// reset button
+resetBtn.onPress = function () {
+  console.log("RESET!");
+};
+resetBtn.onRelease = function () {
+  setup();
 };
