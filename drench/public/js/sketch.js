@@ -15,8 +15,9 @@ let w = 20;
 const red = [255, 0, 0, 100, 100, 0];
 const blue = [0, 255, 0, 100, 0, 100];
 const green = [0, 0, 255, 0, 100, 100];
+const buttonSize = 40;
 
-const Button1 = new Clickable(50, 50);
+const Button1 = new Clickable();
   
 
 function setup() {
@@ -36,22 +37,41 @@ function setup() {
     for (let j = 0; j < rows; j++) {
       grid[i][j].show();
     }
-  }
+  } 
 
-  
-
+  // **************************************************
   // button setup
   // button1
   Button1.x = 10;
   Button1.y = 305;
-  Button1.height = 40;
-  Button1.width = 40;
+  Button1.height = buttonSize;
+  Button1.width = buttonSize;
   Button1.color = color(red[1], green[1], blue[1]);
   Button1.cornerRadius = 10;
   Button1.strokeWeight = 2;
   Button1.stroke = '#000000';
   Button1.textColor = color(red[1], green[1], blue[1]);
 
+
+  // ***************************************************
+}
+
+function draw() {
+  // draw button panel with buttons
+  fill('#B9B7B7');
+  stroke('#949494');
+  rect(5, 300, 280, 105);
+  Button1.draw();
+
+  // moved to setup to only draw once
+  /*
+    background(255);
+
+    for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      grid[i][j].show();
+        }
+    } */ 
 }
 
 // *******************************
@@ -72,21 +92,3 @@ Button1.onHover = function () {
 // button click methods to folow
 // ***************************************
 
-
-function draw() {
-  // draw button panel with buttons
-  fill('#B9B7B7');
-  stroke('#949494');
-  rect(5, 300, 280, 105);
-  Button1.draw();
-
-  // moved to setup to only draw once
-  /*
-    background(255);
-
-    for (let i = 0; i < cols; i++) {
-    for (let j = 0; j < rows; j++) {
-      grid[i][j].show();
-        }
-    } */ 
-}
