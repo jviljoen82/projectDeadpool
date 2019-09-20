@@ -79,22 +79,7 @@ function drawUI() {
     for (let j = 0; j < rows; j++) {
       grid[i][j].show();
     }
-  } 
-
-  // button setup
-  for (ind = 0; ind <= 5; ind++){
-    btnSetup(btnList[ind], ind);
-  }
-
-  //reset btn
-  resetBtn.x = 180;
-  resetBtn.y = 300; 
-  resetBtn.color = '#C0C0C0';
-  resetBtn.cornerRadius = 10;
-  resetBtn.strokeWeight = 2;
-  resetBtn.stroke = '#808080';
-  resetBtn.textColor = '#808080';
-  resetBtn.text = 'RESET';
+  }  
 }
 
 function setup() {
@@ -112,6 +97,21 @@ function setup() {
   grid[0][0].changeAble = true;
   setChangeAble();
   drawUI();
+
+  // button setup
+  for (ind = 0; ind <= 5; ind++){
+    btnSetup(btnList[ind], ind);
+  }
+
+  //reset btn
+  resetBtn.x = 180;
+  resetBtn.y = 300; 
+  resetBtn.color = '#C0C0C0';
+  resetBtn.cornerRadius = 10;
+  resetBtn.strokeWeight = 2;
+  resetBtn.stroke = '#808080';
+  resetBtn.textColor = '#808080';
+  resetBtn.text = 'RESET';
 }
 
 function draw() {
