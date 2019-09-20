@@ -115,3 +115,10 @@ Button2.onHover = function () {
 // button click methods to folow
 // ***************************************
 
+// button1
+Button1.onPress = function () {
+  console.log("button 1 pressed");
+};
+Button1.onRelease = function () {
+  // TODO: tile colour change logic call
+};
