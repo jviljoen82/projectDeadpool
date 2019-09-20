@@ -74,13 +74,10 @@ function draw() {
   fill('#B9B7B7');
   stroke('#949494');
   rect(5, 300, 160, 105);
-  Button1.draw();
-  Button2.draw();
-  Button3.draw();
-  Button4.draw();
-  Button5.draw();
-  Button6.draw();
-
+  for (btnInd = 0; btnInd <= 5; btnInd++) {
+    btnList[btnInd].draw();
+  }
+  
   // moved to setup to only draw once
   /*
     background(255);
