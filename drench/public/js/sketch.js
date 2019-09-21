@@ -27,6 +27,7 @@ const Button6 = new Clickable();
 const resetBtn = new Clickable();
 
 const btnList = [Button1, Button2, Button3, Button4, Button5, Button6];
+let clicksLeft = 30;
 
 function btnSetup(currentBtn, index) {
   let btnColor = color(red[index], green[index], blue[index]);
@@ -36,7 +37,7 @@ function btnSetup(currentBtn, index) {
   } else {
     currentBtn.x = 15 + ((index - 3) * 50);
     currentBtn.y = 360;
-  }  
+  }
   currentBtn.height = buttonSize;
   currentBtn.width = buttonSize;
   currentBtn.color = btnColor;
@@ -79,7 +80,7 @@ function drawUI() {
     for (let j = 0; j < rows; j++) {
       grid[i][j].show();
     }
-  }  
+  }
 }
 
 function setup() {
@@ -105,7 +106,7 @@ function setup() {
 
   //reset btn
   resetBtn.x = 180;
-  resetBtn.y = 300; 
+  resetBtn.y = 300;
   resetBtn.color = '#C0C0C0';
   resetBtn.cornerRadius = 10;
   resetBtn.strokeWeight = 2;
@@ -196,10 +197,25 @@ function colorChange(toColor) {
         grid[i][j].colorCode = toColor;
       }
     }
-  }  
+  }
 
   setChangeAble();
   drawUI();
+}
+
+function clickAmount() {
+    clicksLeft -= 1;
+    console.log(clicksLeft);
+
+    if(clicksLeft === 0) {
+        alert('Game Over!');
+        newGame();
+    }
+}
+
+function newGame() {
+    setup();
+    clicksLeft = 30;
 }
 
 // ***************************************
@@ -209,6 +225,7 @@ function colorChange(toColor) {
 // button1
 Button1.onPress = function () {
   console.log("button 1 pressed");
+  clickAmount();
 };
 Button1.onRelease = function () {
   colorChange(0);
@@ -217,6 +234,7 @@ Button1.onRelease = function () {
 // button2
 Button2.onPress = function () {
   console.log("button 2 pressed");
+  clickAmount();
 };
 Button2.onRelease = function () {
   colorChange(1);
@@ -225,6 +243,7 @@ Button2.onRelease = function () {
 // button3
 Button3.onPress = function () {
   console.log("button 3 pressed");
+  clickAmount();
 };
 Button3.onRelease = function () {
   colorChange(2);
@@ -233,6 +252,7 @@ Button3.onRelease = function () {
 // button4
 Button4.onPress = function () {
   console.log("button 4 pressed");
+  clickAmount();
 };
 Button4.onRelease = function () {
   colorChange(3);
@@ -241,6 +261,7 @@ Button4.onRelease = function () {
 // button5
 Button5.onPress = function () {
   console.log("button 5 pressed");
+  clickAmount();
 };
 Button5.onRelease = function () {
   colorChange(4);
@@ -249,6 +270,7 @@ Button5.onRelease = function () {
 // button6
 Button6.onPress = function () {
   console.log("button 6 pressed");
+  clickAmount();
 };
 Button6.onRelease = function () {
   colorChange(5);
@@ -260,4 +282,5 @@ resetBtn.onPress = function () {
 };
 resetBtn.onRelease = function () {
   setup();
+  newGame();
 };
