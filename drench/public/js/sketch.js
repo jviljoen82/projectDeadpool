@@ -80,8 +80,6 @@ function drawUI() {
 
 function setup() {
   createCanvas(320, 420);
-  // cols = floor(width / w - 2.5);
-  // rows = floor(height / w - 2.5);
   grid = make2DArray(gridSize);
   for (let i = 0; i < gridSize; i++) {
     for (let j = 0; j < gridSize; j++) {
@@ -181,7 +179,23 @@ resetBtn.onHover = () => {
   resetBtn.stroke = '#FFFFFF';
 };
 
-
+function checkWin() {
+  let breakCheck = false;
+  let conditionCheck = false;
+  for (let i = 0; i < gridSize; i++) {
+    for (let j = 0; j < gridSize; j++) {
+      if ((i === 0 && j != 0) || i != 0) {
+        if (grid[i][j].colorCode != grid[0][0].colorCode) {
+          conditionCheck = false;
+          breakCheck = true;
+          break;
+        } else conditionCheck = true;
+      }
+    }
+    if (breakCheck) break;
+  }
+  return conditionCheck;
+}
 
 function colorChange(toColor) {
   // change colours
@@ -196,6 +210,10 @@ function colorChange(toColor) {
 
   setChangeAble();
   drawUI();
+
+  if (checkWin()) {
+    console.log('you win!!');
+  }
 }
 
 function clickAmount() {
