@@ -1,5 +1,6 @@
 
 let grid;
+const setClicks = 30;
 const gridSize = 14;
 const w = 20;
 const buttonSize = 40;
@@ -14,7 +15,7 @@ const Button5 = new Clickable();
 const Button6 = new Clickable();
 const resetBtn = new Clickable();
 const btnList = [Button1, Button2, Button3, Button4, Button5, Button6];
-let clicksLeft = 100;
+let clicksLeft = setClicks;
 
 function make2DArray(gridSize) {
   let arr = new Array(gridSize);
@@ -228,7 +229,7 @@ function clickAmount() {
 
 function newGame() {
     setup();
-    clicksLeft = 30;
+    clicksLeft = setClicks;
 }
 
 // ***************************************
@@ -238,55 +239,55 @@ function newGame() {
 // button1
 Button1.onPress = function () {
   console.log("button 1 pressed");
-  clickAmount();
 };
 Button1.onRelease = function () {
-  colorChange(0);
+  colorChange(0);  
+  clickAmount();
 };
 
 // button2
 Button2.onPress = function () {
   console.log("button 2 pressed");
-  clickAmount();
 };
 Button2.onRelease = function () {
   colorChange(1);
+  clickAmount();
 };
 
 // button3
 Button3.onPress = function () {
   console.log("button 3 pressed");
-  clickAmount();
 };
 Button3.onRelease = function () {
   colorChange(2);
+  clickAmount();
 };
 
 // button4
 Button4.onPress = function () {
   console.log("button 4 pressed");
-  clickAmount();
 };
 Button4.onRelease = function () {
   colorChange(3);
+  clickAmount();
 };
 
 // button5
 Button5.onPress = function () {
   console.log("button 5 pressed");
-  clickAmount();
 };
 Button5.onRelease = function () {
   colorChange(4);
+  clickAmount();
 };
 
 // button6
 Button6.onPress = function () {
   console.log("button 6 pressed");
-  clickAmount();
 };
 Button6.onRelease = function () {
   colorChange(5);
+  clickAmount();
 };
 
 // reset button
@@ -294,6 +295,5 @@ resetBtn.onPress = function () {
   console.log("RESET!");
 };
 resetBtn.onRelease = function () {
-  setup();
   newGame();
 };
