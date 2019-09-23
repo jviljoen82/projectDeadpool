@@ -37,7 +37,11 @@ function showScore() {
 
 function showClickCount() {
   const clicksString = 'Clicks Remain: ' + clicksLeft;
-	fill('#1199FF');
+  if (clicksLeft >= setClicks / 2) {
+    fill('#009900');
+  } else if ((clicksLeft >= setClicks / 4) && (clicksLeft < setClicks / 2)) {
+    fill('#FFC300');
+  } else fill('#FF0000');
   textStyle(BOLD);
   textSize(15);
   text(clicksString, 180, 365, 200, 15);
@@ -257,8 +261,10 @@ function clickAmount() {
 }
 
 function newGame() {
-    setup();
-    clicksLeft = setClicks;
+  setup();
+  if (checkWin()) {
+    clicksLeft = setClicks + 1;
+  } else clicksLeft = setClicks;
 }
 
 // ***************************************
