@@ -236,8 +236,10 @@ function colorChange(toColor) {
         grid[i][j].colorCode = toColor;
       }
     }
-  }  
-  setChangeAble();
+  }
+  for (recurse = 0; recurse < gridSize; recurse++) {
+    setChangeAble();
+  }
   drawUI();
 
   // check win conditions and click remaining
