@@ -57,7 +57,7 @@ function setChangeAble() {
           if (grid[i + 1][j].colorCode === grid[0][0].colorCode) grid[i + 1][j].changeAble = true;
           if (j > 0 && (grid[i][j - 1].colorCode === grid[0][0].colorCode)) grid[i][j - 1].changeAble = true;
         }
-        if (i > 0 && j >= 0 && j < 13) {
+        if (i > 0 && i < 13 && j >= 0 && j < 13) {
           if (grid[i][j + 1].colorCode === grid[0][0].colorCode) grid[i][j + 1].changeAble = true;
           if (grid[i + 1][j].colorCode === grid[0][0].colorCode) grid[i + 1][j].changeAble = true;
           if (j > 0 && (grid[i][j - 1].colorCode === grid[0][0].colorCode)) grid[i][j - 1].changeAble = true;
