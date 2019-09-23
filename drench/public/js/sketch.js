@@ -236,18 +236,19 @@ function colorChange(toColor) {
         grid[i][j].colorCode = toColor;
       }
     }
-  }
-
-  drawUI();
+  }  
   setChangeAble();
+  drawUI();
 
-
+  // check win conditions and click remaining
   if (checkWin()) {
     score += clicksLeft * 10;
     alert("Great, You Won! New round?");
     newGame();
   }
   clickAmount();
+
+  // refresh UI
   drawUI();
 }
 
