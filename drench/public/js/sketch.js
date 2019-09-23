@@ -16,6 +16,7 @@ const Button6 = new Clickable();
 const resetBtn = new Clickable();
 const btnList = [Button1, Button2, Button3, Button4, Button5, Button6];
 let clicksLeft = setClicks;
+let score = 0;
 
 function make2DArray(gridSize) {
   let arr = new Array(gridSize);
@@ -23,6 +24,15 @@ function make2DArray(gridSize) {
     arr[i] = new Array(gridSize);
   }
   return arr;
+}
+
+function showScore() {
+	const scoreString = 'Your score: ' + score;
+	fill('#1199FF');
+  textStyle(BOLD);
+  textSize(17);
+  text(scoreString, 180, 395);
+  textSize(0);
 }
 
 function btnSetup(currentBtn, index) {
@@ -82,6 +92,7 @@ function drawUI() {
 function setup() {
   createCanvas(320, 420);
   grid = make2DArray(gridSize);
+  
   for (let i = 0; i < gridSize; i++) {
     for (let j = 0; j < gridSize; j++) {
       grid[i][j] = new Cell(i, j, w);
@@ -107,6 +118,8 @@ function setup() {
   resetBtn.stroke = '#808080';
   resetBtn.textColor = '#808080';
   resetBtn.text = 'RESET';
+
+  showScore();
 }
 
 function draw() {
@@ -213,7 +226,9 @@ function colorChange(toColor) {
   drawUI();
 
   if (checkWin()) {
-    console.log('you win!!');
+    score = clicksLeft * 10;
+    alert("Great You Won!  New round ?");
+    newGame();
   }
 }
 
@@ -222,8 +237,9 @@ function clickAmount() {
     console.log(clicksLeft);
 
     if(clicksLeft === 0) {
-        alert('Game Over!');
-        newGame();
+      alert('Game Over!');
+      score = 0;
+      newGame();
     }
 }
 
@@ -295,5 +311,6 @@ resetBtn.onPress = function () {
   console.log("RESET!");
 };
 resetBtn.onRelease = function () {
+  score = 0;
   newGame();
 };
