@@ -31,6 +31,7 @@ function showScore() {
 	fill('#1199FF');
   textStyle(BOLD);
   textSize(15);
+  textAlign(CENTER);
   text(scoreString, 180, 395, 200, 15);
   textSize(0);
 }
@@ -44,6 +45,7 @@ function showClickCount() {
   } else fill('#FF0000');
   textStyle(BOLD);
   textSize(15);
+  textAlign(CENTER);
   text(clicksString, 180, 365, 200, 15);
   textSize(0);
 }
