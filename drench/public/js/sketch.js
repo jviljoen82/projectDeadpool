@@ -228,30 +228,33 @@ function checkWin() {
 }
 
 function colorChange(toColor) {
-  // change colours
-  for (let i = 0; i < gridSize; i++) {
-    for (let j = 0; j < gridSize; j++) {
-      if (grid[i][j].changeAble) {
-        grid[i][j].c = color(red[toColor], green[toColor], blue[toColor]);
-        grid[i][j].colorCode = toColor;
+  // check if same color
+  if (toColor != grid[0][0].colorCode) { 
+    // change colours
+    for (let i = 0; i < gridSize; i++) {
+      for (let j = 0; j < gridSize; j++) {
+        if (grid[i][j].changeAble) {
+          grid[i][j].c = color(red[toColor], green[toColor], blue[toColor]);
+          grid[i][j].colorCode = toColor;
+        }
       }
     }
-  }
-  for (recurse = 0; recurse < gridSize; recurse++) {
-    setChangeAble();
-  }
-  drawUI();
+    for (recurse = 0; recurse < gridSize; recurse++) {
+      setChangeAble();
+    }
+    drawUI();
 
-  // check win conditions and click remaining
-  if (checkWin()) {
-    score += clicksLeft * 10;
-    alert("Great, You Won! New round?");
-    newGame();
-  }
-  clickAmount();
+    // check win conditions and click remaining
+    if (checkWin()) {
+      score += clicksLeft * 10;
+      alert("Great, You Won! New round?");
+      newGame();
+    }
+    clickAmount();
 
-  // refresh UI
-  drawUI();
+    // refresh UI
+    drawUI();
+  }
 }
 
 function clickAmount() {
