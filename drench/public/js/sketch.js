@@ -234,13 +234,14 @@ function colorChange(toColor) {
 
   drawUI();
   setChangeAble();    
-  clickAmount();  
+    
 
   if (checkWin()) {
     score = clicksLeft * 10;
     alert("Great You Won!  New round ?");
     newGame();
   }
+  clickAmount();
   drawUI();
 }
 
