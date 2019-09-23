@@ -31,7 +31,7 @@ function showScore() {
 	fill('#1199FF');
   textStyle(BOLD);
   textSize(15);
-  text(scoreString, 180, 395, 100, 15);
+  text(scoreString, 180, 395, 200, 15);
   textSize(0);
 }
 
@@ -39,8 +39,8 @@ function showClickCount() {
   const clicksString = 'Clicks Remain: ' + clicksLeft;
 	fill('#1199FF');
   textStyle(BOLD);
-  textSize(10);
-  text(clicksString, 180, 380, 100, 15);
+  textSize(15);
+  text(clicksString, 180, 365, 200, 15);
   textSize(0);
 }
 
@@ -101,7 +101,7 @@ function drawUI() {
 }
 
 function setup() {
-  createCanvas(320, 420);
+  createCanvas(380, 420);
   grid = make2DArray(gridSize);
   
   for (let i = 0; i < gridSize; i++) {
