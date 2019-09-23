@@ -1,6 +1,6 @@
 
 let grid;
-const setClicks = 50;
+const setClicks = 30;
 const gridSize = 14;
 const w = 20;
 const buttonSize = 40;
