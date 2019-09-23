@@ -237,7 +237,7 @@ function colorChange(toColor) {
 
 
   if (checkWin()) {
-    score = clicksLeft * 10;
+    score += clicksLeft * 10;
     alert("Great You Won!  New round ?");
     newGame();
   }
