@@ -30,8 +30,17 @@ function showScore() {
 	const scoreString = 'Your score: ' + score;
 	fill('#1199FF');
   textStyle(BOLD);
-  textSize(17);
-  text(scoreString, 180, 395);
+  textSize(15);
+  text(scoreString, 180, 395, 100, 15);
+  textSize(0);
+}
+
+function showClickCount() {
+  const clicksString = 'Clicks Remain: ' + clicksLeft;
+	fill('#1199FF');
+  textStyle(BOLD);
+  textSize(10);
+  text(clicksString, 180, 380, 100, 15);
   textSize(0);
 }
 
@@ -87,6 +96,8 @@ function drawUI() {
       grid[i][j].show();
     }
   }
+  showClickCount();
+  showScore();
 }
 
 function setup() {
@@ -119,7 +130,6 @@ function setup() {
   resetBtn.textColor = '#808080';
   resetBtn.text = 'RESET';
 
-  showScore();
 }
 
 function draw() {
@@ -222,14 +232,16 @@ function colorChange(toColor) {
     }
   }
 
-  setChangeAble();
   drawUI();
+  setChangeAble();    
+  clickAmount();  
 
   if (checkWin()) {
     score = clicksLeft * 10;
     alert("Great You Won!  New round ?");
     newGame();
   }
+  drawUI();
 }
 
 function clickAmount() {
@@ -257,8 +269,7 @@ Button1.onPress = function () {
   console.log("button 1 pressed");
 };
 Button1.onRelease = function () {
-  colorChange(0);  
-  clickAmount();
+  colorChange(0);
 };
 
 // button2
@@ -267,7 +278,6 @@ Button2.onPress = function () {
 };
 Button2.onRelease = function () {
   colorChange(1);
-  clickAmount();
 };
 
 // button3
@@ -276,7 +286,6 @@ Button3.onPress = function () {
 };
 Button3.onRelease = function () {
   colorChange(2);
-  clickAmount();
 };
 
 // button4
@@ -285,7 +294,6 @@ Button4.onPress = function () {
 };
 Button4.onRelease = function () {
   colorChange(3);
-  clickAmount();
 };
 
 // button5
@@ -294,7 +302,6 @@ Button5.onPress = function () {
 };
 Button5.onRelease = function () {
   colorChange(4);
-  clickAmount();
 };
 
 // button6
@@ -303,7 +310,6 @@ Button6.onPress = function () {
 };
 Button6.onRelease = function () {
   colorChange(5);
-  clickAmount();
 };
 
 // reset button
