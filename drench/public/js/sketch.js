@@ -1,6 +1,6 @@
 
 let grid;
-const setClicks = 30;
+const setClicks = 50;
 const gridSize = 14;
 const w = 20;
 const buttonSize = 40;
@@ -263,10 +263,10 @@ function clickAmount() {
 }
 
 function newGame() {
-  setup();
   if (checkWin()) {
     clicksLeft = setClicks + 1;
   } else clicksLeft = setClicks;
+  setup();
 }
 
 // ***************************************
